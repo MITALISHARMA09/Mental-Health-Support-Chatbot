@@ -14,12 +14,12 @@ function App() {
 
   const messagesEndRef = useRef(null);
 
-  // ✅ Auto-scroll to bottom on new message
+  //  Auto-scroll to bottom on new message
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [chat]);
 
-  // ✅ Send text message (from input)
+  //  Send text message (from input)
   const sendMessage = async () => {
     if (message.trim() === "") return;
 
@@ -55,7 +55,7 @@ function App() {
     }
   };
 
-  // ✅ Handle message from voice input
+  //  Handle message from voice input
   const handleVoiceMessage = async (transcript) => {
     const newChat = [...chat, { sender: "user", text: transcript }];
     setChat(newChat);
@@ -102,7 +102,7 @@ function App() {
 
   const playTherapyMusic = () => {
     setShowMusic(true);
-    setMusicId("PLE_hWyYbJLoE9D9fUyuTa5vtPJAZCBoyi"); // You can set a specific video ID here if needed
+    setMusicId("PLE_hWyYbJLoE9D9fUyuTa5vtPJAZCBoyi"); 
   };
 
   const speakTextInChunks = (text) => {
