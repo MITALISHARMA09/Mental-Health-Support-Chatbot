@@ -9,15 +9,14 @@ from flask_cors import CORS
 
 # Flask App Initialization
 app = Flask(__name__)
-app.secret_key = "a3f7c1d5b17e48f2b8f3a7c9e0d2a5f4d9b7e6c3a1b8f5c7e0d3a9c8b4f2e6d1"
+app.secret_key = ""
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 # Load dataset
 DATASET_PATH = "train.csv"
 df = pd.read_csv(DATASET_PATH) if os.path.exists(DATASET_PATH) else None
 
-# Replace with actual API key
-API_KEY = "AIzaSyAIVlAl2veSsNkirB_I-82hOP0xqL8dQkc"
+API_KEY = ""
 chat_model = ChatGoogleGenerativeAI(model="gemini-1.5-pro", google_api_key=API_KEY)
 
 # Define system instructions for AI
