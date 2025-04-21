@@ -1,0 +1,163 @@
+/* Reset & Base Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #cce3f5, #f9e8dd);
+  margin: 0;
+  padding: 0;
+  color: #2c3e50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Chat Container */
+.chat-container {
+  width: 90%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Title */
+h2 {
+  text-align: center;
+  font-size: 32px;
+  color: #3366cc;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Chat Box */
+.chat-box {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 16px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Messages */
+.chat-message {
+  padding: 14px 18px;
+  border-radius: 20px;
+  max-width: 75%;
+  font-size: 15px;
+  line-height: 1.5;
+  backdrop-filter: blur(8px);
+  animation: fadeInUp 0.4s ease;
+}
+
+.chat-message.user {
+  align-self: flex-end;
+  background: #b2dfdb;
+  color: #004d40;
+  border-bottom-right-radius: 0;
+}
+
+.chat-message.bot {
+  align-self: flex-start;
+  background: #e1f5fe;
+  color: #01579b;
+  border-bottom-left-radius: 0;
+}
+
+/* Input Area */
+.input-box {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.input-box input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.85);
+  transition: box-shadow 0.3s ease;
+}
+
+.input-box input:focus {
+  box-shadow: 0 0 8px #81d4fa;
+  outline: none;
+}
+
+.input-box button {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #42a5f5;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.input-box button:hover {
+  background-color: #1e88e5;
+  transform: scale(1.05);
+}
+
+/* 🎤 Voice Button Style */
+.input-box button:nth-child(3) {
+  background-color: #66bb6a;
+}
+
+.input-box button:nth-child(3):hover {
+  background-color: #388e3c;
+}
+
+/* TTS Toggle */
+.tts-toggle {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+  color: #555;
+}
+
+.tts-toggle label {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* 🎵 Music Player */
+.music-container {
+  margin-top: 20px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid #bbdefb;
+  animation: fadeInUp 1s ease;
+}
+
+.music-container h3 {
+  margin-bottom: 10px;
+  color: #1976d2;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
