@@ -9,7 +9,7 @@ from flask_cors import CORS
 
 # Flask App Initialization
 app = Flask(__name__)
-app.secret_key = ""
+app.secret_key = "a3f7c1d5b17e48f2b8f3a7c9e0d2a5f4d9b7e6c3a1b8f5c7e0d3a9c8b4f2e6d1"
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 # Load dataset
