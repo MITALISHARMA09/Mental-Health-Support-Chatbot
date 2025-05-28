@@ -14,12 +14,12 @@ function App() {
 
   const messagesEndRef = useRef(null);
 
-  //  Auto-scroll to bottom on new message
+  // ✅ Auto-scroll to bottom on new message
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [chat]);
 
-  //  Send text message (from input)
+  // ✅ Send text message (from input)
   const sendMessage = async () => {
     if (message.trim() === "") return;
 
@@ -28,7 +28,15 @@ function App() {
     setMessage(""); // Clear input
 
     window.speechSynthesis.cancel(); // Stop any previous TTS
-
+    
+      if (isStopMusicRequest(message)) {
+    setShowMusic(false);
+    setChat([
+      ...newChat,
+      { sender: "bot", text: "Stopping the soothing sounds for you. 🎧" },
+    ]);
+    return;
+  }
     if (isTherapyMusicRequest(message)) {
       playTherapyMusic();
       setChat([
@@ -55,7 +63,7 @@ function App() {
     }
   };
 
-  //  Handle message from voice input
+  // ✅ Handle message from voice input
   const handleVoiceMessage = async (transcript) => {
     const newChat = [...chat, { sender: "user", text: transcript }];
     setChat(newChat);
@@ -71,6 +79,19 @@ function App() {
       ]);
       return;
     }
+    const isStopMusicRequest = (msg) => {
+  const lowerMsg = msg.toLowerCase();
+  return lowerMsg.includes("stop") && (lowerMsg.includes("music") || lowerMsg.includes("sound"));
+};
+
+if (isStopMusicRequest(transcript)) {
+  setShowMusic(false);
+  setChat([
+    ...newChat,
+    { sender: "bot", text: "Stopping the soothing sounds for you. 🎧" },
+  ]);
+  return;
+}
 
     try {
       const response = await axios.post("http://127.0.0.1:5000/chat", {
@@ -97,12 +118,18 @@ function App() {
     const hasMusicWord = relaxWords.some((word) => lowerMsg.includes(word));
     const hasCalmWord = calmWords.some((word) => lowerMsg.includes(word));
 
-    return hasMusicWord && hasCalmWord;
+    return hasMusicWord || hasCalmWord;
   };
-
+const isStopMusicRequest = (msg) => {
+  const lowerMsg = msg.toLowerCase();
+  return (
+    lowerMsg.includes("stop") &&
+    (lowerMsg.includes("music") || lowerMsg.includes("sound") || lowerMsg.includes("song"))
+  );
+};
   const playTherapyMusic = () => {
     setShowMusic(true);
-    setMusicId("PLE_hWyYbJLoE9D9fUyuTa5vtPJAZCBoyi"); 
+    setMusicId("PLE_hWyYbJLoE9D9fUyuTa5vtPJAZCBoyi"); // You can set a specific video ID here if needed
   };
 
   const speakTextInChunks = (text) => {
@@ -151,11 +178,14 @@ function App() {
 
   return (
     <div className="chat-container">
-      <h2>Mental Health Support Chatbot 🤖</h2>
+      <h2>HEALBOT 🤖</h2>
 
       {showMusic && (
         <div className="music-container">
-          <h3>🎵 Relax and Enjoy</h3>
+         <div className="music-header">
+      <h3>🎵 Relax and Enjoy</h3>
+      <button className="close-button" onClick={() => setShowMusic(false)}>×</button>
+    </div>
           <YouTube
             videoId={musicId || ""}
             opts={{
