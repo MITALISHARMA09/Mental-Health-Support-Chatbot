@@ -33,6 +33,7 @@ h2 {
   color: #3366cc;
   margin-bottom: 20px;
   font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 /* Chat Box */
@@ -136,7 +137,7 @@ h2 {
 }
 
 /* 🎵 Music Player */
-.music-container {
+/*.music-container {
   margin-top: 20px;
   padding: 16px;
   background: rgba(255, 255, 255, 0.3);
@@ -149,6 +150,32 @@ h2 {
 .music-container h3 {
   margin-bottom: 10px;
   color: #1976d2;
+}*/
+.music-container {
+  position: relative;
+  background: #f2f2f2;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.music-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-button {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #555;
+  font-weight: bold;
+}
+
+.close-button:hover {
+  color: red;
 }
 
 /* Animations */
