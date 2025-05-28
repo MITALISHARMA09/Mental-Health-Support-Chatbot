@@ -1,9 +1,9 @@
 
 # HEALBOT – Mental Health Support Chatbot
-A full-stack, AI-powered chatbot designed to provide empathetic mental health support through intelligent conversation. Built using React, Flask, LangChain, and Gemini 1.5, HEALBOT integrates voice input, therapy music, and text-to-speech to deliver a user-friendly experience for mental wellness.
+A full-stack, AI-powered chatbot designed to provide empathetic mental health support through intelligent conversation. Built using React, Flask, LangChain, and Gemini 1.5 Pro, HEALBOT integrates voice input, therapy music, and text-to-speech to deliver a user-friendly experience for mental wellness.
 
 🚀 Features
-💬 AI chatbot for mental health support using LangChain + Gemini 1.5
+💬 AI chatbot for mental health support using LangChain + Gemini 1.5 Pro
 
 🎙️ Voice input using Web Speech API
 
@@ -15,5 +15,4 @@ A full-stack, AI-powered chatbot designed to provide empathetic mental health su
 
 🖥️ Backend: Flask (Python)
 
-📁 Modular architecture for easy scaling and updates
 
