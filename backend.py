@@ -16,7 +16,10 @@ CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 DATASET_PATH = "train.csv"
 df = pd.read_csv(DATASET_PATH) if os.path.exists(DATASET_PATH) else None
 
-API_KEY = ""
+# Replace with actual API key
+#API_KEY = "AIzaSyAIVlAl2veSsNkirB_I-82hOP0xqL8dQkc" (old)
+# API_KEY = "AIzaSyB3fIE4reW5j9s9Rc_K31WJxGD7XZyqJTE"
+API_KEY = "AIzaSyDZ913ykQG_boADQa2iebBlrirSY10SVOY"
 chat_model = ChatGoogleGenerativeAI(model="gemini-1.5-pro", google_api_key=API_KEY)
 
 # Define system instructions for AI
