@@ -17,4 +17,5 @@ A full-stack, AI-powered chatbot designed to provide empathetic mental health su
 
 
 🔒 Disclaimer
+
 HEALBOT is not a replacement for professional mental health care. It is intended for educational and supportive purposes only.
