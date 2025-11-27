@@ -16,6 +16,7 @@ CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 DATASET_PATH = "train.csv"
 df = pd.read_csv(DATASET_PATH) if os.path.exists(DATASET_PATH) else None
 
+# Add the API key 
 chat_model = ChatGoogleGenerativeAI(model="gemini-1.5-pro", google_api_key=API_KEY)
 
 # Define system instructions for AI
@@ -79,4 +80,5 @@ if __name__ == "__main__":
 #    URL: http://127.0.0.1:5000/chat
 #    Method: POST
 #    Body (JSON): {"message": "I'm feeling stressed."}
+
 
