@@ -6,17 +6,24 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.schema import SystemMessage, HumanMessage
 from flask import Flask, request, jsonify, session
 from flask_cors import CORS
+from dotenv import load_dotenv
+
+# Load environment variables from .env
+load_dotenv()
 
 # Flask App Initialization
 app = Flask(__name__)
-app.secret_key = "a3f7c1d5b17e48f2b8f3a7c9e0d2a5f4d9b7e6c3a1b8f5c7e0d3a9c8b4f2e6d1"
+app.secret_key = os.getenv("SECRET_KEY")  # secret key from .env
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 # Load dataset
 DATASET_PATH = "train.csv"
 df = pd.read_csv(DATASET_PATH) if os.path.exists(DATASET_PATH) else None
 
-# Add the API key 
+# Get API key
+API_KEY = os.getenv("API_KEY")
+
+# Initialize Chat Model
 chat_model = ChatGoogleGenerativeAI(model="gemini-1.5-pro", google_api_key=API_KEY)
 
 # Define system instructions for AI
@@ -80,5 +87,6 @@ if __name__ == "__main__":
 #    URL: http://127.0.0.1:5000/chat
 #    Method: POST
 #    Body (JSON): {"message": "I'm feeling stressed."}
+
 
 
